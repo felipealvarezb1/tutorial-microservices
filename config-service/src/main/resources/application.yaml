@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    config:
+      server:
+
+  application:
+    name: config-server
