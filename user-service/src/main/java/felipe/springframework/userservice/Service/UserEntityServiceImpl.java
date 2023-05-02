@@ -13,11 +13,10 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
-public class UserEntityImpl implements UserEntityService {
+public class UserEntityServiceImpl implements UserEntityService {
 
     private final UserEntityRepository userEntityRepository;
     private final RestTemplate restTemplate;
@@ -42,13 +41,13 @@ public class UserEntityImpl implements UserEntityService {
 
     @Override
     public List<Car> getCars(int userId) {
-        List<Car> cars = restTemplate.getForObject("http://localhost:8002/car/searchByUser/" + userId, List.class);
+        List<Car> cars = restTemplate.getForObject("http://car-service/car/searchByUser/" + userId, List.class);
         return cars;
     }
 
     @Override
     public List<Bike> getBikes(int userId) {
-        List<Bike> bikes = restTemplate.getForObject("http://localhost:8003/bike/searchByUser/" + userId, List.class);
+        List<Bike> bikes = restTemplate.getForObject("http://bike-service/bike/searchByUser/" + userId, List.class);
         return bikes;
     }
 
