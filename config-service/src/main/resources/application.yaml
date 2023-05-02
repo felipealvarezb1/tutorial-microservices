@@ -1,10 +1,12 @@
 server:
   port: 8081
-
 spring:
   cloud:
     config:
       server:
-
+        git:
+          default-label: master
+          uri: https://github.com/felipealvarezb1/tutorial-microservices.git
+          search-paths: config-data
   application:
-    name: config-server
+    name: config-service
